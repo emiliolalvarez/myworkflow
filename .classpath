@@ -1,0 +1,113 @@
+<classpath>
+  <classpathentry kind="src" path="src/test/java" output="target/test-classes" including="**/*.java"/>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar" sourcepath="M2_REPO/javax/activation/activation/1.1/activation-1.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar" sourcepath="M2_REPO/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar" sourcepath="M2_REPO/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/mail/mail/1.4.1/mail-1.4.1.jar" sourcepath="M2_REPO/javax/mail/mail/1.4.1/mail-1.4.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar" sourcepath="M2_REPO/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/asm/asm/3.1/asm-3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/asm/asm-commons/3.1/asm-commons-3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/asm/asm-tree/3.1/asm-tree-3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/geronimo/specs/geronimo-annotation_1.0_spec/1.1.1/geronimo-annotation_1.0_spec-1.1.1.jar" sourcepath="M2_REPO/org/apache/geronimo/specs/geronimo-annotation_1.0_spec/1.1.1/geronimo-annotation_1.0_spec-1.1.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/geronimo/specs/geronimo-jaspic_1.0_spec/1.0/geronimo-jaspic_1.0_spec-1.0.jar" sourcepath="M2_REPO/org/apache/geronimo/specs/geronimo-jaspic_1.0_spec/1.0/geronimo-jaspic_1.0_spec-1.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1.1/geronimo-jta_1.1_spec-1.1.1.jar" sourcepath="M2_REPO/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1.1/geronimo-jta_1.1_spec-1.1.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/gmbal/gmbal-api-only/3.0.0-b023/gmbal-api-only-3.0.0-b023.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-framework/2.1.1/grizzly-framework-2.1.1.jar" sourcepath="M2_REPO/org/glassfish/grizzly/grizzly-framework/2.1.1/grizzly-framework-2.1.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/org/glassfish/grizzly/grizzly-framework/2.1.1/grizzly-framework-2.1.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-framework/2.1.1/grizzly-framework-2.1.1-tests.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-http/2.1.1/grizzly-http-2.1.1.jar" sourcepath="M2_REPO/org/glassfish/grizzly/grizzly-http/2.1.1/grizzly-http-2.1.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/org/glassfish/grizzly/grizzly-http/2.1.1/grizzly-http-2.1.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-http-server/2.1.1/grizzly-http-server-2.1.1.jar" sourcepath="M2_REPO/org/glassfish/grizzly/grizzly-http-server/2.1.1/grizzly-http-server-2.1.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/org/glassfish/grizzly/grizzly-http-server/2.1.1/grizzly-http-server-2.1.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-http-servlet/2.1.1/grizzly-http-servlet-2.1.1.jar" sourcepath="M2_REPO/org/glassfish/grizzly/grizzly-http-servlet/2.1.1/grizzly-http-servlet-2.1.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/org/glassfish/grizzly/grizzly-http-servlet/2.1.1/grizzly-http-servlet-2.1.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/grizzly/grizzly-rcm/2.1.1/grizzly-rcm-2.1.1.jar" sourcepath="M2_REPO/org/glassfish/grizzly/grizzly-rcm/2.1.1/grizzly-rcm-2.1.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/org/glassfish/grizzly/grizzly-rcm/2.1.1/grizzly-rcm-2.1.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.7.1/jackson-core-asl-1.7.1.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.7.1/jackson-core-asl-1.7.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-jaxrs/1.7.1/jackson-jaxrs-1.7.1.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-jaxrs/1.7.1/jackson-jaxrs-1.7.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.7.1/jackson-mapper-asl-1.7.1.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-mapper-asl/1.7.1/jackson-mapper-asl-1.7.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-xc/1.7.1/jackson-xc-1.7.1.jar" sourcepath="M2_REPO/org/codehaus/jackson/jackson-xc/1.7.1/jackson-xc-1.7.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/javax.servlet/3.1/javax.servlet-3.1.jar" sourcepath="M2_REPO/org/glassfish/javax.servlet/3.1/javax.servlet-3.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-impl-2.2.3-1.jar" sourcepath="M2_REPO/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-impl-2.2.3-1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-client/1.8/jersey-client-1.8.jar" sourcepath="M2_REPO/com/sun/jersey/jersey-client/1.8/jersey-client-1.8-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/com/sun/jersey/jersey-client/1.8/jersey-client-1.8-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-core/1.8/jersey-core-1.8.jar" sourcepath="M2_REPO/com/sun/jersey/jersey-core/1.8/jersey-core-1.8-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/com/sun/jersey/jersey-core/1.8/jersey-core-1.8-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-grizzly2/1.8/jersey-grizzly2-1.8.jar" sourcepath="M2_REPO/com/sun/jersey/jersey-grizzly2/1.8/jersey-grizzly2-1.8-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/com/sun/jersey/jersey-grizzly2/1.8/jersey-grizzly2-1.8-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-json/1.8/jersey-json-1.8.jar" sourcepath="M2_REPO/com/sun/jersey/jersey-json/1.8/jersey-json-1.8-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/com/sun/jersey/jersey-json/1.8/jersey-json-1.8-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-server/1.8/jersey-server-1.8.jar" sourcepath="M2_REPO/com/sun/jersey/jersey-server/1.8/jersey-server-1.8-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/com/sun/jersey/jersey-server/1.8/jersey-server-1.8-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar" sourcepath="M2_REPO/org/codehaus/jettison/jettison/1.1/jettison-1.1-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/emilio/.m2/repository/org/codehaus/jettison/jettison/1.1/jettison-1.1-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-ajp/8.0.3.v20111011/jetty-ajp-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-ajp/8.0.3.v20111011/jetty-ajp-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/aggregate/jetty-all/8.0.3.v20111011/jetty-all-8.0.3.v20111011-javadoc.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-annotations/8.0.3.v20111011/jetty-annotations-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-annotations/8.0.3.v20111011/jetty-annotations-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-client/8.0.3.v20111011/jetty-client-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-client/8.0.3.v20111011/jetty-client-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-continuation/8.0.3.v20111011/jetty-continuation-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-continuation/8.0.3.v20111011/jetty-continuation-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-deploy/8.0.3.v20111011/jetty-deploy-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-deploy/8.0.3.v20111011/jetty-deploy-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-http/8.0.3.v20111011/jetty-http-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-http/8.0.3.v20111011/jetty-http-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-io/8.0.3.v20111011/jetty-io-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-io/8.0.3.v20111011/jetty-io-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-jmx/8.0.3.v20111011/jetty-jmx-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-jmx/8.0.3.v20111011/jetty-jmx-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-jndi/8.0.3.v20111011/jetty-jndi-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-jndi/8.0.3.v20111011/jetty-jndi-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-monitor/8.0.3.v20111011/jetty-monitor-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-monitor/8.0.3.v20111011/jetty-monitor-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-overlay-deployer/8.0.3.v20111011/jetty-overlay-deployer-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-overlay-deployer/8.0.3.v20111011/jetty-overlay-deployer-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-plus/8.0.3.v20111011/jetty-plus-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-plus/8.0.3.v20111011/jetty-plus-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-policy/8.0.3.v20111011/jetty-policy-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-policy/8.0.3.v20111011/jetty-policy-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-rewrite/8.0.3.v20111011/jetty-rewrite-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-rewrite/8.0.3.v20111011/jetty-rewrite-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-security/8.0.3.v20111011/jetty-security-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-security/8.0.3.v20111011/jetty-security-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-server/8.0.3.v20111011/jetty-server-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-server/8.0.3.v20111011/jetty-server-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-servlet/8.0.3.v20111011/jetty-servlet-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-servlet/8.0.3.v20111011/jetty-servlet-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-servlets/8.0.3.v20111011/jetty-servlets-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-servlets/8.0.3.v20111011/jetty-servlets-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-start/8.0.3.v20111011/jetty-start-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-start/8.0.3.v20111011/jetty-start-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-util/8.0.3.v20111011/jetty-util-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-util/8.0.3.v20111011/jetty-util-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-webapp/8.0.3.v20111011/jetty-webapp-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-webapp/8.0.3.v20111011/jetty-webapp-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-websocket/8.0.3.v20111011/jetty-websocket-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-websocket/8.0.3.v20111011/jetty-websocket-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jetty/jetty-xml/8.0.3.v20111011/jetty-xml-8.0.3.v20111011.jar" sourcepath="M2_REPO/org/eclipse/jetty/jetty-xml/8.0.3.v20111011/jetty-xml-8.0.3.v20111011-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar" sourcepath="M2_REPO/junit/junit/3.8.1/junit-3.8.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/glassfish/external/management-api/3.0.0-b012/management-api-3.0.0-b012.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jboss/netty/netty/3.2.5.Final/netty-3.2.5.Final.jar" sourcepath="M2_REPO/org/jboss/netty/netty/3.2.5.Final/netty-3.2.5.Final-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mortbay/jetty/servlet-api/3.0.20100224/servlet-api-3.0.20100224.jar" sourcepath="M2_REPO/org/mortbay/jetty/servlet-api/3.0.20100224/servlet-api-3.0.20100224-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/stax/stax-api/1.0.1/stax-api-1.0.1.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+</classpath>
