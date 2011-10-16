@@ -1,5 +1,6 @@
 package com.workflow.main;
 
+import com.workflow.jetty.httpserver.JettyHttpServer;
 import com.workflow.transition.Transition;
 import com.workflow.workflow.CustomContext;
 import com.workflow.workflow.WorkflowDefinition;
@@ -15,7 +16,7 @@ public class TestWorkflow {
 	public static void main(String[] args) throws InterruptedException {
 		
 				
-		CustomContext context = new CustomContext();
+		MyWorkflowDefinitionContext context = new MyWorkflowDefinitionContext();
 		
 		WorkflowDefinition wd = new WorkflowDefinition(context);
 		
@@ -28,7 +29,8 @@ public class TestWorkflow {
 		wd.subscribe(new WorkflowObserverClient(wd) );
 		
 		new WorkflowDefinitionInvoker(wd).start();
-		
+		new WorkflowClient().start();
+		new JettyHttpServer(wd).start();
 	}
 
 }

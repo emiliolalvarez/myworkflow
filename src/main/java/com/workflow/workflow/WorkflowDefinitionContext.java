@@ -26,7 +26,7 @@ public class WorkflowDefinitionContext {
 	
 	public synchronized ExecutorService getExecutor(String name){
 		if(executors.get(name)==null){
-			executors.put(name, Executors.newFixedThreadPool(20));
+			executors.put(name, Executors.newFixedThreadPool(50));
 		}
 		return executors.get(name);
 	}

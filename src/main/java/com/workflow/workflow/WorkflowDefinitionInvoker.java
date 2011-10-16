@@ -26,7 +26,6 @@ public class WorkflowDefinitionInvoker extends Thread {
 		this.executor = Executors.newFixedThreadPool(20);
 		this.listener = new DiscardServer(queue,8000);
 		this.listener.startServer();
-		new WorkflowClient().start();
 	}
 	
 	public void run(){

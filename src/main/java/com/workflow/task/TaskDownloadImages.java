@@ -1,5 +1,6 @@
 package com.workflow.task;
 
+import com.workflow.main.MyWorkflowDefinitionContext;
 import com.workflow.workflow.Workflow;
 
 public class TaskDownloadImages extends TaskAsync {
@@ -43,6 +44,8 @@ public class TaskDownloadImages extends TaskAsync {
 	
 	public synchronized void incrementProcessedImages(){
 		processedImages+=1;
+		MyWorkflowDefinitionContext c = (MyWorkflowDefinitionContext)this.workflow.getWorkflowDefinition().getWorkflowDefinitionContext();
+		c.increseStat("downloaded_images");
 		notify();
 	}
 

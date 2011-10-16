@@ -12,7 +12,7 @@ public class DownloadImage extends TaskCallable {
 	@Override
 	public TaskAsync call(){
 		// TODO Auto-generated method stub
-		long sleep = Math.round(Math.random() * 8000);
+		long sleep = Math.round(Math.random() * 2000);
 		try {
 			Thread.sleep(sleep);
 		} catch (InterruptedException e) {
