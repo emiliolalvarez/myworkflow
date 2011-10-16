@@ -7,15 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.LinkedBlockingQueue;
 
-import com.workflow.netty.discardserver.DiscardServer;
-import com.workflow.task.TaskAsync;
-import com.workflow.task.TaskCallable;
 import com.workflow.task.TaskResult;
 import com.workflow.transition.Transition;
 
@@ -34,21 +26,12 @@ public class WorkflowDefinition {
 	
 	private List<WorkflowObserver> observers = new LinkedList<WorkflowObserver>();
 	
-	private Map<String,LinkedBlockingQueue<Future<TaskAsync>>> callbacks = new HashMap<String,LinkedBlockingQueue<Future<TaskAsync>>>();
+	private WorkflowDefinitionContext context;
 	
-	private Map<String,ExecutorService> executors = new HashMap<String,ExecutorService>();
-	
-	private BlockingQueue<String> requestQueue = new LinkedBlockingQueue<String>();
-	
-	private DiscardServer requestListener;
-	
-	private WorkflowContext context;
-	
-	public WorkflowDefinition(WorkflowContext context){
+	public WorkflowDefinition(WorkflowDefinitionContext context){
 		
 		this.context = context;
-		this.requestListener = new DiscardServer(this,8000);
-		this.requestListener.startServer();
+		
 	}
 	
 	public void addTransition(Transition transition){
@@ -59,7 +42,7 @@ public class WorkflowDefinition {
 		transitions.add(transition);
 	}
 	
-	public WorkflowContext getWorkflowContext(){
+	public WorkflowDefinitionContext getWorkflowDefinitionContext(){
 		return this.context;
 	}
 	
@@ -126,33 +109,5 @@ public class WorkflowDefinition {
 		this.observers.add(wo);
 	}
 	
-	public BlockingQueue<String> getRequestQueue(){
-		return this.requestQueue;
-	}
 	
-	
-	public synchronized LinkedBlockingQueue<Future<TaskAsync>> getCallbackQueue(String name){
-		if(callbacks.get(name)==null){
-			callbacks.put(name, new LinkedBlockingQueue<Future<TaskAsync>>());
-			new CallbackListener(this, name).start();
-		}
-		return (LinkedBlockingQueue<Future<TaskAsync>>)callbacks.get(name);
-	}
-	
-	public synchronized ExecutorService getExecutor(String name){
-		if(executors.get(name)==null){
-			executors.put(name, Executors.newFixedThreadPool(20));
-		}
-		return executors.get(name);
-	}
-	
-	public synchronized void queueAsyncTask(String queueName,TaskCallable callable){
-		ExecutorService executor = this.getExecutor(queueName);
-		LinkedBlockingQueue<Future<TaskAsync>> callbacks = this.getCallbackQueue(queueName);
-		try {
-			callbacks.put(executor.submit(callable));
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
 }

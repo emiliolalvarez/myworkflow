@@ -1,5 +1,7 @@
 package com.workflow.netty.discardserver;
 
+import java.util.concurrent.BlockingQueue;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
@@ -7,14 +9,12 @@ import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
 import org.jboss.netty.channel.SimpleChannelHandler;
 
-import com.workflow.workflow.WorkflowDefinition;
-
 
 public class DiscardServerHandler extends SimpleChannelHandler {
-	private WorkflowDefinition workflowDefinition;
+	private BlockingQueue<String> queue;
 	
-	public DiscardServerHandler(WorkflowDefinition wd){
-		workflowDefinition = wd;
+	public DiscardServerHandler(BlockingQueue<String> q){
+		this.queue = q;
 	}
 	
 	@Override
@@ -25,11 +25,8 @@ public class DiscardServerHandler extends SimpleChannelHandler {
 	    	sb.append((char) buf.readByte());
 	    }
 	    
-//	    Channel ch = e.getChannel();
-//	    ch.write(e.getMessage());
-//	    
 	    try {
-			workflowDefinition.getRequestQueue().put(sb.toString());
+	    	queue.put(sb.toString());
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

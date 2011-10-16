@@ -8,11 +8,11 @@ import com.workflow.task.TaskAsync;
 
 public class CallbackListener extends Thread {
 	
-	private WorkflowDefinition workflowDefinition;
+	private WorkflowDefinitionContext workflowDefinitionContext;
 	private String queueName;
 	
-	public CallbackListener(WorkflowDefinition wd, String queueName){
-		this.workflowDefinition = wd;
+	public CallbackListener(WorkflowDefinitionContext context, String queueName){
+		this.workflowDefinitionContext = context;
 		this.queueName = queueName;
 	}
 	
@@ -20,7 +20,7 @@ public class CallbackListener extends Thread {
 		System.out.println("Image callback listener started...");
 		while(true){
 			try {
-				LinkedBlockingQueue<Future<TaskAsync>> q = workflowDefinition.getCallbackQueue(queueName);
+				LinkedBlockingQueue<Future<TaskAsync>> q = workflowDefinitionContext.getCallbackQueue(queueName);
 				
 				Future<TaskAsync> f  = q.take();
 				
@@ -31,11 +31,11 @@ public class CallbackListener extends Thread {
 					continue;
 				}
 				else{
-					System.out.println("Task is done in ["+queueName+"] queue");
 					TaskAsync t = null;
 					try {
 						t = f.get();
 						t.notifyAsyncTaskFinalization();
+						System.out.println("Task is done in ["+queueName+"] queue => "+t.getCurrentTask().getWorkflow().getName());
 					} catch (ExecutionException e) {
 						e.printStackTrace();
 					}

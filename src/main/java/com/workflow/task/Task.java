@@ -15,7 +15,7 @@ public abstract class Task {
 		this.workflow = w;
 	}
 	
-	protected Workflow getWorkflow(){
+	public Workflow getWorkflow(){
 		return this.workflow;
 	}
 	

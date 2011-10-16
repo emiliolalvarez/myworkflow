@@ -1,6 +1,6 @@
 package com.workflow.workflow;
 
-public class CustomContext extends WorkflowContext {
+public class CustomContext extends WorkflowDefinitionContext {
 	private int parse;
 	private int verify;
 	private int submit;

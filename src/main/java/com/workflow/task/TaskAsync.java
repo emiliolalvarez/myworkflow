@@ -3,19 +3,22 @@ package com.workflow.task;
 import com.workflow.workflow.Workflow;
 
 
-public class TaskAsync extends Task implements TaskAsyncObserver {
+public abstract class TaskAsync extends Task implements TaskAsyncObserver {
 
 	public TaskAsync(Workflow w) {
 		super(w);
 	}
 
-	@Override
-	public void notifyAsyncTaskFinalization() {
+	public Task getCurrentTask(){
+		return this;
 	}
+	
+	@Override
+	public abstract void notifyAsyncTaskFinalization();
 
 	@Override
-	public TaskResult runTask() {
-		return null;
-	}
+	public abstract TaskResult runTask();
+	
+	
 
 }

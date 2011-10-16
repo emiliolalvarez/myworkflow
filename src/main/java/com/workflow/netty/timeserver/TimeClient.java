@@ -14,9 +14,12 @@ import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
 public class TimeClient {
 
     public static void main(String[] args) throws Exception {
-        String host = args[0];
-        int port = Integer.parseInt(args[1]);
+//        String host = args[0];
+//        int port = Integer.parseInt(args[1]);
 
+    	String host = "localhost";
+    	int port = 8000;
+    	
         ChannelFactory factory =
             new NioClientSocketChannelFactory(
                     Executors.newCachedThreadPool(),

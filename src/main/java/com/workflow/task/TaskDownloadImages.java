@@ -17,7 +17,7 @@ public class TaskDownloadImages extends TaskAsync {
 		
 		for(int i=0;i<totalImages;i++){
 			//Queue async callable tasks
-			this.workflow.getWorkflowDefinition().queueAsyncTask("images",
+			this.workflow.getWorkflowDefinition().getWorkflowDefinitionContext().queueAsyncTask("images",
 					new DownloadImage("http://www.domain.com/image.jpg",this));
 			
 		}
@@ -50,7 +50,4 @@ public class TaskDownloadImages extends TaskAsync {
 	public void notifyAsyncTaskFinalization() {
 		this.incrementProcessedImages();
 	}
-
-	
-
 }
