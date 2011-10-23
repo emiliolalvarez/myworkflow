@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.inject.Injector;
 import com.workflow.task.TaskResult;
 import com.workflow.transition.Transition;
 
@@ -28,9 +29,17 @@ public class WorkflowDefinition {
 	
 	private WorkflowDefinitionContext context;
 	
-	public WorkflowDefinition(WorkflowDefinitionContext context){
+	private Injector injector;
+	
+	public WorkflowDefinition( WorkflowDefinitionContext context){
 		
 		this.context = context;
+		
+	}
+	
+	public void setInjector(Injector injector){
+		
+		this.injector = injector;
 		
 	}
 	
@@ -79,11 +88,12 @@ public class WorkflowDefinition {
 		}
 		this.instances.remove(w);
 	}
-
+	
 	public synchronized Workflow getWorkflowInstance(){
 		if(!hasAnyTransitions)return null;
 		instanceCount++;
-		Workflow workflow = new Workflow(this,"Workflow_"+(instanceCount));
+		Workflow workflow;
+		workflow = new Workflow(this,"Workflow_"+(instanceCount));
 		this.instances.put(workflow, initialTransition);
 		return workflow;
 	}
