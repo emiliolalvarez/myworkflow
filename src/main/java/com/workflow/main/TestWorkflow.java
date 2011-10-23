@@ -2,7 +2,6 @@ package com.workflow.main;
 
 import com.workflow.jetty.httpserver.JettyHttpServer;
 import com.workflow.transition.Transition;
-import com.workflow.workflow.CustomContext;
 import com.workflow.workflow.WorkflowDefinition;
 import com.workflow.workflow.WorkflowDefinitionInvoker;
 import com.workflow.workflow.WorkflowObserverClient;

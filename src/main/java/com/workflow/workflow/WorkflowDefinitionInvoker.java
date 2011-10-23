@@ -5,7 +5,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import com.workflow.main.WorkflowClient;
 import com.workflow.netty.discardserver.DiscardServer;
 import com.workflow.task.TaskDownloadImages;
 import com.workflow.task.TaskOnError;

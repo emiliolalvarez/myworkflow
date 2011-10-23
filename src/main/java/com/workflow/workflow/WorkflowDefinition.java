@@ -86,7 +86,6 @@ public class WorkflowDefinition {
 		Workflow workflow = new Workflow(this,"Workflow_"+(instanceCount));
 		this.instances.put(workflow, initialTransition);
 		return workflow;
-		
 	}
 	
 	public synchronized void updateWorkflowStatus(String status, Workflow w){
