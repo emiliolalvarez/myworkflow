@@ -3,9 +3,7 @@ package com.workflow.workflow;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
 
-import com.workflow.netty.discardserver.DiscardServer;
 import com.workflow.task.TaskDownloadImages;
 import com.workflow.task.TaskOnError;
 import com.workflow.task.TaskParse;
@@ -16,15 +14,14 @@ public class WorkflowDefinitionInvoker extends Thread {
 	
 	private WorkflowDefinition wd;
 	private ExecutorService executor;
-	private DiscardServer listener;
+	
 	private BlockingQueue<String> queue;
 	
-	public WorkflowDefinitionInvoker(WorkflowDefinition wd){
+	public WorkflowDefinitionInvoker(WorkflowDefinition wd, BlockingQueue<String> queue){
 		this.wd = wd;
-		this.queue = new LinkedBlockingQueue<String>();
+		this.queue = queue;
 		this.executor = Executors.newFixedThreadPool(20);
-		this.listener = new DiscardServer(queue,8000);
-		this.listener.startServer();
+	
 	}
 	
 	public void run(){
@@ -32,7 +29,7 @@ public class WorkflowDefinitionInvoker extends Thread {
 		while(true){
 			
 			try{
-				
+				System.out.println("Starting invoker...");
 				String req = queue.take();
 				
 				if(req!=null){
