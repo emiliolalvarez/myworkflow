@@ -20,7 +20,7 @@ public class WorkflowDefinitionInvoker extends Thread {
 	public WorkflowDefinitionInvoker(WorkflowDefinition wd, BlockingQueue<String> queue){
 		this.wd = wd;
 		this.queue = queue;
-		this.executor = Executors.newFixedThreadPool(20);
+		this.executor = Executors.newFixedThreadPool(50);
 	
 	}
 	

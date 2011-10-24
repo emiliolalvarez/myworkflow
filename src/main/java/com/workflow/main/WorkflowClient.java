@@ -9,7 +9,7 @@ public class WorkflowClient extends Thread {
 	public void run(){
 		try {
 			Socket client = new Socket("localhost", 8000);
-			int requests = 10000;
+			int requests = 1000;
 			String message;
 			while(requests>0){
 				message = "message_"+requests+"\n";
