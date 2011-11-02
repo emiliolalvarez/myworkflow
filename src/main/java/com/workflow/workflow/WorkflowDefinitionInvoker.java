@@ -34,7 +34,7 @@ public class WorkflowDefinitionInvoker extends Thread {
 				
 				if(req!=null){
 					System.out.println("Taken: "+req);
-					Workflow w = wd.getWorkflowInstance();
+					Workflow w = wd.getWorkflowInstance(Workflow.class);
 					w.addTask("verify",new TaskVerify(w));
 					w.addTask("parse",new TaskParse(w));
 					w.addTask("image_download", new TaskDownloadImages(w));

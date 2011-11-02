@@ -23,6 +23,10 @@ public class Workflow implements Runnable{
 		return this.tasks.get(taskName);
 	}
 	
+	public Workflow(){
+		
+	}
+	
 	public Workflow(WorkflowDefinition workflowDefinition, String name){
 		this.workflowDefinition = workflowDefinition;
 		this.name = name;

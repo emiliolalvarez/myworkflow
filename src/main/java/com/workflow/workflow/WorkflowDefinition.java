@@ -1,5 +1,6 @@
 package com.workflow.workflow;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -8,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.google.inject.Injector;
 import com.workflow.task.TaskResult;
 import com.workflow.transition.Transition;
+import com.workflow.workflow.Workflow;
 
 
 public class WorkflowDefinition {
@@ -29,17 +30,9 @@ public class WorkflowDefinition {
 	
 	private WorkflowDefinitionContext context;
 	
-	private Injector injector;
-	
 	public WorkflowDefinition( WorkflowDefinitionContext context){
 		
 		this.context = context;
-		
-	}
-	
-	public void setInjector(Injector injector){
-		
-		this.injector = injector;
 		
 	}
 	
@@ -89,6 +82,7 @@ public class WorkflowDefinition {
 		this.instances.remove(w);
 	}
 	
+	/*
 	public synchronized Workflow getWorkflowInstance(){
 		if(!hasAnyTransitions)return null;
 		instanceCount++;
@@ -97,6 +91,37 @@ public class WorkflowDefinition {
 		this.instances.put(workflow, initialTransition);
 		return workflow;
 	}
+	*/
+	public synchronized <T extends Workflow> T getWorkflowInstance(Class<? extends Workflow> c){
+		if(!hasAnyTransitions)return null;
+		instanceCount++;
+
+		try {
+			T workflow = (T) c.getDeclaredConstructor(WorkflowDefinition.class,String.class).newInstance(this,"Workflow_"+(instanceCount));
+			this.instances.put(workflow, initialTransition);
+			return workflow;
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	
 	public synchronized void updateWorkflowStatus(String status, Workflow w){
 		this.instances.put(w, status);
