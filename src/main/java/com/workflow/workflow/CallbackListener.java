@@ -10,6 +10,7 @@ public class CallbackListener extends Thread {
 	
 	private WorkflowDefinitionContext workflowDefinitionContext;
 	private String queueName;
+	private boolean isRunning = false;
 	
 	public CallbackListener(WorkflowDefinitionContext context, String queueName){
 		this.workflowDefinitionContext = context;
@@ -17,8 +18,9 @@ public class CallbackListener extends Thread {
 	}
 	
 	public void run(){
-		System.out.println("Image callback listener started...");
-		while(true){
+		System.out.println("Callback listener started...");
+		isRunning = true;
+		while(isRunning){
 			try {
 				CompletionService<TaskAsync> cs = workflowDefinitionContext.getCompletionService(queueName);
 				
@@ -45,5 +47,9 @@ public class CallbackListener extends Thread {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public void setIsRunning(boolean running){
+		isRunning = running;
 	}
 }
