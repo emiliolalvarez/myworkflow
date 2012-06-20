@@ -23,6 +23,7 @@ public class WorkflowDefinitionContext {
 	protected Map<String,LinkedBlockingQueue<Future<TaskAsync>>> callbacks = new HashMap<String,LinkedBlockingQueue<Future<TaskAsync>>>();
 	
 	protected Map<String,ExecutorService> executors = new HashMap<String,ExecutorService>();
+	
 	protected Map<String,LinkedList<Future<?>>> executorsFutures = new HashMap<String,LinkedList<Future<?>>>();
 	
 	protected Map<String,CompletionService<TaskAsyncResult>> completion = new HashMap<String,CompletionService<TaskAsyncResult>>();
@@ -58,13 +59,6 @@ public class WorkflowDefinitionContext {
 			executors.put(name, Executors.newFixedThreadPool(poolSize,f));
 		}
 		return executors.get(name);
-	}
-	
-	private LinkedList<Future<?>> getExecutorFuture(String name){
-		if(executorsFutures.get(name)==null){
-			executorsFutures.put(name, new LinkedList<Future<?>>());
-		}
-		return executorsFutures.get(name);
 	}
 	
 	public void queueExecutorTask(String executorName,Runnable task){
