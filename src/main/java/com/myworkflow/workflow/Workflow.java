@@ -54,7 +54,7 @@ public class Workflow implements Runnable{
 		return name;
 	}
 	
-	public TransitionDefinition getWorkflowDefinition(){
+	public TransitionDefinition getTransitionDefinition(){
 		return transitionDefinition;
 	}
 	

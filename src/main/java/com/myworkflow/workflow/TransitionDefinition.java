@@ -7,11 +7,11 @@ import com.myworkflow.TaskResult;
 import com.myworkflow.transition.Transition;
 
 
-public class TransitionDefinition {
+public class TransitionDefinition implements ITransitionDefinition {
 	
-	private static boolean hasAnyTransitions = false;
+	private boolean hasAnyTransitions = false;
 	
-	private static String initialTransition = null;
+	private String initialTransition = null;
 	
 	private List<Transition> transitions = new ArrayList<Transition>();
 	

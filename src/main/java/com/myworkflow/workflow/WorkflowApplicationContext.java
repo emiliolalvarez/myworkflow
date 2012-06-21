@@ -15,6 +15,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.myworkflow.main.Configuration;
 import com.myworkflow.task.TaskAsync;
 import com.myworkflow.task.TaskAsyncResult;
 import com.myworkflow.task.TaskCallable;
@@ -34,7 +35,7 @@ public class WorkflowApplicationContext {
 	
 	protected LinkedList<CallbackListener> callbackListeners = new LinkedList<CallbackListener>();
 	
-	protected WorkflowProperties properties;
+	protected Configuration configuration;
 	
 	private TransitionDefinition transition;
 	
@@ -76,9 +77,9 @@ public class WorkflowApplicationContext {
 		this.instances.remove(w);
 	}
 	
-	public WorkflowApplicationContext(TransitionDefinition transition,String propertiesFileName){
+	public WorkflowApplicationContext(TransitionDefinition transition,Configuration configuration){
 		this.transition = transition;
-		properties = new WorkflowProperties(propertiesFileName);
+		this.configuration = configuration;
 	}
 	
 	public synchronized void updateWorkflowStatus(String status, Workflow w){
@@ -89,8 +90,8 @@ public class WorkflowApplicationContext {
 		this.observers.add(wo);
 	}
 	
-	public WorkflowProperties getWorkflowDefintionProperties(){
-		return properties;
+	public Configuration getWorkflowDefintionProperties(){
+		return configuration;
 	}
 	
 	public synchronized void addCallbackListener(String queueName,int poolSizeCallback){
@@ -104,7 +105,7 @@ public class WorkflowApplicationContext {
 	
 	private  ExecutorService getExecutor(String name){
 		if(executors.get(name)==null){
-			int poolSize = properties.getIntProperty("executor.size."+name);
+			int poolSize = configuration.getInt("executor.size."+name);
 			WorkflowThreadFactory f = new WorkflowThreadFactory(name);
 			executors.put(name, Executors.newFixedThreadPool(poolSize,f));
 		}
@@ -119,8 +120,8 @@ public class WorkflowApplicationContext {
 	private CompletionService<TaskAsyncResult> getCompletionService(String name){
 		if(completion.get(name)==null){
 			
-			int poolSizeExecutor = properties.getIntProperty("completion.executor.size."+name);
-			int poolSizeCallback = properties.getIntProperty("completion.callback.size."+name);
+			int poolSizeExecutor = configuration.getInt("completion.executor.size."+name);
+			int poolSizeCallback = configuration.getInt("completion.callback.size."+name);
 			System.out.println("Completion executor "+name+" pool size: "+poolSizeExecutor);
 			System.out.println("Completion callback "+name+" pool size: "+poolSizeCallback);
 			WorkflowThreadFactory f = new WorkflowThreadFactory("completion-"+name);
