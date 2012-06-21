@@ -1,15 +1,15 @@
 package com.myworkflow;
 
 import com.myworkflow.workflow.Workflow;
-import com.myworkflow.workflow.WorkflowDefinition;
+import com.myworkflow.workflow.TransitionDefinition;
 import com.myworkflow.workflow.WorkflowObserver;
 
 
 public class WorkflowObserverClient implements  WorkflowObserver {
 
-	private WorkflowDefinition wd;
+	private TransitionDefinition wd;
 	
-	public WorkflowObserverClient(WorkflowDefinition wd){
+	public WorkflowObserverClient(TransitionDefinition wd){
 		this.wd = wd;
 	}
 	

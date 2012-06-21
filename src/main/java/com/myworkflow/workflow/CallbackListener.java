@@ -1,19 +1,16 @@
 package com.myworkflow.workflow;
 
-import java.util.concurrent.CompletionService;
-import java.util.concurrent.Future;
-
 import com.myworkflow.task.TaskAsync;
 import com.myworkflow.task.TaskAsyncResult;
 
 public class CallbackListener extends Thread {
 	
-	private WorkflowDefinitionContext workflowDefinitionContext;
+	private WorkflowApplicationContext context;
 	private String queueName;
 	private boolean isRunning = false;
 	
-	public CallbackListener(WorkflowDefinitionContext context, String queueName){
-		this.workflowDefinitionContext = context;
+	public CallbackListener(WorkflowApplicationContext context, String queueName){
+		this.context = context;
 		this.queueName = queueName;
 	}
 	
@@ -22,11 +19,8 @@ public class CallbackListener extends Thread {
 		isRunning = true;
 		while(isRunning){
 			try {
-				CompletionService<TaskAsyncResult> cs = workflowDefinitionContext.getCompletionService(queueName);
-				Future<TaskAsyncResult> f  = cs.take();
 				TaskAsync t = null;
-				
-				TaskAsyncResult r = f.get();
+				TaskAsyncResult r = context.getTaskAsyncResult(queueName);
 				t = r.getTaskAsync();
 				t.notifyAsyncTaskFinalization(r);
 				System.out.println("Task is done in ["+queueName+"] queue => "+t.getCurrentTask().getWorkflow().getName());
