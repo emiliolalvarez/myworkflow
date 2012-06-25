@@ -68,7 +68,7 @@ public class WorkflowApplicationContext {
 		return null;
 	}
 	
-	public synchronized void finishWorkflow(Workflow w){
+	protected synchronized void finishWorkflow(Workflow w){
 		
 		for(WorkflowObserver wo : this.observers){
 			wo.notifyFinishedEvent(w);
