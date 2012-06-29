@@ -3,6 +3,8 @@ package com.myworkflow.workflow;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.apache.log4j.Logger;
+
 import com.myworkflow.TaskResult;
 import com.myworkflow.task.Task;
 
@@ -12,6 +14,7 @@ public class Workflow implements Runnable{
 	private TransitionDefinition transitionDefinition;
 	private WorkflowApplicationContext context;
 	private String name;
+	private final Logger LOGGER = Logger.getLogger(Workflow.class);
 	
 	public void addTask(String taskName, Task task){
 		this.tasks.put(taskName, task);
@@ -36,16 +39,15 @@ public class Workflow implements Runnable{
 	}
 	
 	public void runTask(String taskName) throws Exception{
-		System.out.println(taskName);
-		Task t = this.getTask(taskName);
+		LOGGER.debug("Starting task "+taskName);
+		Task t = getTask(taskName);
 		TaskResult tr = t.runTask();
-		System.out.println("Task: "+tr.getMessage());
-		String next = this.transitionDefinition.getNextTransitionName(taskName,tr);
+		String next = transitionDefinition.getNextTransitionName(taskName,tr);
 		if(next!=null){
 			runTask(next);
 		}
 		else{
-			System.out.println("Workflow finished");
+			LOGGER.debug("Workflow finished");
 			context.finishWorkflow(this);
 		}
 	}
@@ -64,7 +66,7 @@ public class Workflow implements Runnable{
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			System.out.println("Workflow object error!");
+			LOGGER.error("Workflow instance error");
 		}
 	}
 	

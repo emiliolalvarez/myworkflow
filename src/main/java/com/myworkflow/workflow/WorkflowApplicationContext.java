@@ -15,6 +15,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.apache.log4j.Logger;
+
 import com.myworkflow.main.Configuration;
 import com.myworkflow.task.TaskAsync;
 import com.myworkflow.task.TaskAsyncResult;
@@ -42,6 +44,8 @@ public class WorkflowApplicationContext {
 	private Map<Workflow,String> instances = new HashMap<Workflow,String>();
 	
 	private List<WorkflowObserver> observers = new LinkedList<WorkflowObserver>();
+	
+	private final Logger LOGGER = Logger.getLogger(WorkflowApplicationContext.class);
 	
 	public TransitionDefinition getTransitionDefinition(){
 		return transition;
@@ -122,8 +126,9 @@ public class WorkflowApplicationContext {
 			
 			int poolSizeExecutor = configuration.getInt("completion.executor.size."+name);
 			int poolSizeCallback = configuration.getInt("completion.callback.size."+name);
-			System.out.println("Completion executor "+name+" pool size: "+poolSizeExecutor);
-			System.out.println("Completion callback "+name+" pool size: "+poolSizeCallback);
+			LOGGER.info("ASYNC QUEUE CREATED: "+name);
+			LOGGER.info("Completion executor "+name+" pool size: "+poolSizeExecutor);
+			LOGGER.info("Completion callback "+name+" pool size: "+poolSizeCallback);
 			WorkflowThreadFactory f = new WorkflowThreadFactory("completion-"+name);
 			ExecutorService es = Executors.newFixedThreadPool(poolSizeExecutor,f);
 			completion.put(name, new ExecutorCompletionService<TaskAsyncResult>(es));
@@ -172,7 +177,7 @@ public class WorkflowApplicationContext {
 			ExecutorService es = executors.get(key);
 			ThreadPoolExecutor tpe = (ThreadPoolExecutor)es;
 			es.shutdownNow();
-			System.out.println("Active threads in "+key+" pool: "+tpe.getActiveCount());
+			LOGGER.info("Active threads in "+key+" pool: "+tpe.getActiveCount());
 		}
 		executors.clear();
 	}
@@ -204,7 +209,7 @@ public class WorkflowApplicationContext {
 	}
 	
 	public void finish(){
-		System.out.println("============Finishing context============");
+		LOGGER.info("============Finishing context============");
 		clearCallbackListeners();
 		clearCallbacksQueue();
 		clearCompletionServices();

@@ -3,9 +3,13 @@ package com.myworkflow.workflow;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 public class WorkflowProperties  extends Properties{
 
 	private static final long serialVersionUID = 1L;
+	
+	private final Logger LOGGER = Logger.getLogger(WorkflowProperties.class);
 
 	public WorkflowProperties(String filename){
 		FileInputStream in;
@@ -14,7 +18,7 @@ public class WorkflowProperties  extends Properties{
 		   this.load(in);
 		   in.close();
 		} catch (Exception e) {
-		   System.out.println(e.getMessage());
+		   LOGGER.error(e.getMessage());
 		   System.exit(1);
 		}
 	}
