@@ -21,12 +21,17 @@ public class CallbackListener extends Thread {
 			try {
 				TaskAsync t = null;
 				TaskAsyncResult r = context.getTaskAsyncResult(queueName);
-				t = r.getTaskAsync();
-				t.notifyAsyncTaskFinalization(r);
-				System.out.println("Task is done in ["+queueName+"] queue => "+t.getCurrentTask().getWorkflow().getName());
+				if(r!=null){
+					t = r.getTaskAsync();
+					t.notifyAsyncTaskFinalization(r);
+					System.out.println("Task is done in ["+queueName+"] queue => "+t.getCurrentTask().getWorkflow().getName());
+				}
 			} 
 			catch (Exception e) {
-				isRunning=false;
+				e.printStackTrace();
+				if(e instanceof InterruptedException){
+					isRunning=false;
+				}
 			}
 		}
 	}
